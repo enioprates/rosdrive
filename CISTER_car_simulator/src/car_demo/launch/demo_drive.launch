@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<!--****************************************************************************************************
+#  * Copyright 2020 Enio Vasconcelos Filho (eniopvf@gmail.com, enio.filho@ifg.edu.br, enpvf@isep.ipp.pt)
+#  *
+#  * Licensed under the Apache License, Version 2.0 (the "License");
+#  * you may not use this file except in compliance with the License.
+#  * You may obtain a copy of the License at
+#  *
+#  *     http://www.apache.org/licenses/LICENSE-2.0
+#  *
+#  * Unless required by applicable law or agreed to in writing, software
+#  * distributed under the License is distributed on an "AS IS" BASIS,
+#  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  * See the License for the specific language governing permissions and
+#  * limitations under the License.
+#  *
+# *****************************************************************************************************-->
+
+<launch>
+
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <!--arg name="verbose" value="true"/-->
+    <!--arg name="world_name" value="$(find car_demo)/worlds/LineTrack_base_01.world"/-->
+    <!--arg name="world_name" value="$(find car_demo)/worlds/LineTrack_base_04_wall.world"/-->
+    <!--arg name="world_name" value="$(find car_demo)/worlds/LineTrack_base_03.world"/-->
+    <!--arg name="world_name" value="$(find car_demo)/worlds/LineTrack_oval2.world"/-->
+    <!--arg name="world_name" value="$(find car_demo)/worlds/LineTrack_oval_cars.world"/-->
+    <!--arg name="world_name" value="$(find car_demo)/worlds/LineTrack_oval_extreme3.world"/-->
+    <arg name="world_name" value="$(find car_demo)/worlds/LineTrack_curve_03.world"/>
+    <!--arg name="world_name" value="$(find car_demo)/worlds/LineTrack_curve_extreme2.world"/-->
+    <!--arg name="world_name" value="$(find car_demo)/worlds/LineTrack_curve_04.world"/-->
+    <!--arg name="world_name" value="$(find car_demo)/worlds/LineTrack_curve_overtake4.world"/-->
+    <!--arg name="world_name" value="$(find car_demo)/worlds/LineTrack_curve_overtake5.world"/-->
+
+  </include>
+
+    
+  <!-- include our robots -->
+  <!--include file="$(find car_demo)/launch/cars_t.launch"/-->
+  <!--include file="$(find car_demo)/launch/cars_t_oval.launch"/-->
+  <!--include file="$(find car_demo)/launch/cars_t_curve.launch"/-->
+  <include file="$(find car_demo)/launch/cars_t_curve_2.launch"/>
+
+
+  <!--node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -x 3 -y -12 -z 0.5 -model prius"/-->
+  <!--node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" /-->
+
+</launch>

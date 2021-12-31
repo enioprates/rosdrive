@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--****************************************************************************************************
+#  * Copyright 2020 Enio Vasconcelos Filho (eniopvf@gmail.com, enio.filho@ifg.edu.br, enpvf@isep.ipp.pt)
+#  *
+#  * Licensed under the Apache License, Version 2.0 (the "License");
+#  * you may not use this file except in compliance with the License.
+#  * You may obtain a copy of the License at
+#  *
+#  *     http://www.apache.org/licenses/LICENSE-2.0
+#  *
+#  * Unless required by applicable law or agreed to in writing, software
+#  * distributed under the License is distributed on an "AS IS" BASIS,
+#  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  * See the License for the specific language governing permissions and
+#  * limitations under the License.
+#  *
+# *****************************************************************************************************-->
+<launch>
+	<param name="use_sim_time" type="boolean" value="true" />
+	<!--Launch the listener-->
+	<group ns="list_1">
+		<node pkg="image_processing" name="listener" type="listener.py" args="car1 TV" output="screen"/>
+	</group>	
+
+	<!--group ns="list_2">
+		<node pkg="image_processing" name="listener" type="listener.py" args="car1 car2 SV"/>
+	</group>	
+	<group ns="list_3">
+		<node pkg="image_processing" name="listener" type="listener.py" args="car2 car3 SV"/>
+	</group>	
+	<group ns="list_4">
+		<node pkg="image_processing" name="listener" type="listener.py" args="car3 car4 SV"/>
+	</group>	
+	<group ns="list_5">
+		<node pkg="image_processing" name="listener" type="listener.py" args="car4 car5 SV"/>
+	</group>	
+	<group ns="list_6">
+		<node pkg="image_processing" name="listener" type="listener.py" args="car5 car6 SV"/>
+	</group-->	
+	<!--group ns="list_7">
+		<node pkg="image_processing" name="listener" type="listener.py" args="car6 car7 SV"/>
+	</group-->	
+	<!--group ns="list_8">
+		<node pkg="image_processing" name="listener" type="listener.py" args="car7 car8 SV"/>
+	</group-->	
+	<!--group ns="list_9">
+		<node pkg="image_processing" name="listener" type="listener.py" args="car9"/>
+	</group>	
+	<group ns="list_10">
+		<node pkg="image_processing" name="listener" type="listener.py" args="car10"/>
+	</group>	
+	<group ns="list_11">
+		<node pkg="image_processing" name="listener" type="listener.py" args="car11"/>
+	</group-->	
+
+	
+</launch>
