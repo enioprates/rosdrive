@@ -1,8 +1,0 @@
-prefix=/home/enio/OneDrive/Cister/ROS/CarSim/CISTER_car_drive_controller/devel
-
-Name: ros_its_msgs
-Description: Description of ros_its_msgs
-Version: 0.0.1
-Cflags: -I/home/enio/OneDrive/Cister/ROS/CarSim/CISTER_car_drive_controller/devel/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime std_msgs
