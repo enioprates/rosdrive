@@ -10,7 +10,7 @@
 
 ## How to setup the project - COPADRIVE Simulator
 ````
-- Download files from bitbucket (git clone https://enpvf@bitbucket.org/enpvf/inline.git)
+- Download files from github (git clone https://github.com/enioprates/rosdrive)
 - Delete build and devel folders from ~/CarSim/CISTER_car_simulator folder
 - Open a new terminal inside ~/CISTER_car_simulator
 - catkin_make
