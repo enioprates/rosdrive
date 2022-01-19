@@ -1,6 +1,6 @@
 # ROSDRIVE README
-* Version: 	1.0
-* Date:		08/10/2021
+* Version: 	1.1
+* Date:		19/01/2022
 * Author: 	Enio Filho
 
 ## Requirements
@@ -8,17 +8,19 @@
 * ROS: Melodic
 * Gazebo: Gazebo 9
 
-## How to setup the project - COPADRIVE Simulator
+## How to setup the project 
+
+### RosSim Simulator Environment
 ````
 - Download files from github (git clone https://github.com/enioprates/rosdrive)
-- Delete build and devel folders from ~/CISTER_car_simulator folder
 - Open a new terminal inside ~/CISTER_car_simulator
 - catkin_make
 - run the simulator: 
 	- source devel/setup.launch
-	- roslaunch car_demo demo_t.launch (RosDrive version)
+	- roslaunch car_demo demo_t.launch
 ````
 ````
+[OPTIONAL: Changing the Track, vehicles initial position or vehicles number]
 car_demo Options:
 - Circuit Options:
 	- LineTrack_curve_03.world - Circuit with no obstacles
@@ -30,45 +32,11 @@ car_demo Options:
 
 ````
 
-* **ATTENTION**: Before running the control algorithms, PAUSE the simulation and reset the time!!!!
-## Errors and solutions:
-- You should follow the steps described in https://github.com/osrf/car_demo/pull/43/commits/fd7bcc74cbc502adb005b1b4bb8129c16c6cdf36
-	OR
-- Replace the following lines:
-````
-	car_demo/CMakeLists.txt
-		(current)
-		l 14:	find_package(gazebo 8 REQUIRED)	
-		l 15:	find_package(ignition-msgs0 REQUIRED)
-		(new)				
-		l 14: 	find_package(gazebo 9 REQUIRED)
-		l 15:	find_package(ignition-msgs1 REQUIRED)
-	car_demo/plugins/gazebo_ros_block_laser.cpp
-		(new)
-		l 28:	#include <ignition/math/Pose3.hh>
-		
-		(current)
-		l 85:	last_update_time_ = this->world_->GetSimTime();
-		(new)
-  		l 85: last_update_time_ = this->world_->SimTime();
-		
-		(current)
-		l 408: 	math::Pose pose;
-		l 409:  pose.pos.x = 0.5*sin(0.01*this->sim_time_.Double());
-		l 410:  gzdbg << "plugin simTime [" << this->sim_time_.Double() << "] update pose [" << pose.pos.x << "]\n";
-		(new)
-		l 408:	ignition::math::Pose3d pose;
-		l 409:  pose.Pos().X() = 0.5*sin(0.01*this->sim_time_.Double());
-		l 410  gzdbg << "plugin simTime [" << this->sim_time_.Double() << "] update pose [" << pose.Pos().X() << "]\n";
-````
-## Python 
-````
-- executable files: 	chmod +x <NAME_OF_THE_FILE>.py
-- libraries:		sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
-````
+* **ATTENTION**: Before running the controller algorithms, PAUSE the simulation and reset the time!!!!
 
-## RosSim Control algorithms
-- the control algorithms are inside ~/CISTER_image_processing
+
+### RosSim Controller algorithms
+- the controller algorithms are inside ~/CISTER_image_processing
 - Delete build and devel folders from ~/CISTER_image_processing folder
 - Open a new terminal inside ~/CISTER_image_processing
 - Compile
@@ -76,18 +44,24 @@ car_demo Options:
 	Error and solutions:
 	- Install SDL2:	sudo apt-get install libsdl2-dev
 
-* **INFO**: The control algorithm is based in several files, as long as the leader of the vehicles follows the line in the road
+* **INFO**: The controller algorithm is based in several files, as long as the leader of the vehicles follows the line in the road
 
-## Starting the leader
+## Python 
+````
+- executable files: 	chmod +x <NAME_OF_THE_FILE>.py
+- libraries:		sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
+````
+
+## Starting the Vehicle
 ````
 (LINE DETECTION ALGORITHM)
-- Open a new terminal inside ~/CISTER_image_processing
+- Open a new terminal inside ~/CISTER_car_drive_controller
 - source devel/setup.launch
 - rosrun image_processing lane_lines_detection.py
 ````
 ````
-(FOLLOW LINE ALGORITHM)
-- Open a new terminal inside ~/CISTER_image_processing
+(LINE FOLLOWER ALGORITHM)
+- Open a new terminal inside ~/CISTER_car_drive_controller
 - source devel/setup.launch
 - rosrun image_processing simulation_connector.py
 ````
@@ -95,14 +69,10 @@ car_demo Options:
 ````
 ## Recording Data
 ````
-(FOLLOWER)
 - Open a new terminal inside ~/CISTER_image_processing
 - source devel/setup.launch
-- rosrun image_processing listener.py car1 car2		//records the leader and fisrt follower data
+- rosrun image_processing listener.py car1 TV     //records the vehicle
 
-- Open a new terminal inside ~/CISTER_image_processing
-- source devel/setup.launch
-- rosrun image_processing listener.py <follower>	//records the remain followers data
 ````
 
 ## Adjustable parameters inside simulation_connector.py:
