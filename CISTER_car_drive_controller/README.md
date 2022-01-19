@@ -8,8 +8,8 @@
 * ROS: Melodic
 * Gazebo: Gazebo 9
 
-## InLINE Control algorithms
-- the control algorithms are inside ~/CISTER_image_processing
+## InLINE Controller algorithms
+- the controller algorithms are inside ~/CISTER_image_processing
 - Delete ".cache" files from ~/CISTER_image_processing/Build folder
 - Open a new terminal inside ~/CISTER_image_processing
 - Compile
@@ -26,7 +26,7 @@
 - libraries:		sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
 ````
 
-## Starting the leader
+## Starting the vehicle
 ````
 (LINE DETECTION ALGORITHM)
 - Open a new terminal inside ~/CISTER_image_processing
@@ -34,38 +34,19 @@
 - rosrun image_processing lane_lines_detection.py
 ````
 ````
-(FOLLOW LINE ALGORITHM)
+(LINE FOLLOWER ALGORITHM)
 - Open a new terminal inside ~/CISTER_image_processing
 - source devel/setup.launch
 - rosrun image_processing simulation_connector.py
 ````
 
-## Starting the Follower
-````
-(FOLLOWER)
-- Open a new terminal inside ~/CISTER_image_processing
-- source devel/setup.launch
-- rosrun image_processing platooning.py <leader> <follower>
-	example: rosrun image_processing platooning.py car1 car2
-````
-## Starting Follower's follower
-````
-(FOLLOWER)
-- Open a new terminal inside ~/CISTER_image_processing
-- source devel/setup.launch
-- rosrun image_processing platooning.py <leader> <follower> control
-	example: rosrun image_processing platooning.py car2 car3 control
-````
+
 ## Recording Data
 ````
-(FOLLOWER)
 - Open a new terminal inside ~/CISTER_image_processing
 - source devel/setup.launch
-- rosrun image_processing listener.py car1 car2		//records the leader and fisrt follower data
+- rosrun image_processing listener.py car1 TV		//records the leader and fisrt follower data
 
-- Open a new terminal inside ~/CISTER_image_processing
-- source devel/setup.launch
-- rosrun image_processing listener.py <follower>	//records the remain followers data
 ````
 
 ## Adjustable paramters inside platooning.py:
