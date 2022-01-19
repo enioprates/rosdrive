@@ -8,7 +8,7 @@
 * ROS: Melodic
 * Gazebo: Gazebo 9
 
-## InLINE Controller algorithms
+## ROSDRIVE Controller algorithms
 - the controller algorithms are inside ~/CISTER_image_processing
 - Delete ".cache" files from ~/CISTER_image_processing/Build folder
 - Open a new terminal inside ~/CISTER_image_processing
