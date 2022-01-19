@@ -1,2 +1,0 @@
-image_processing:prius_msgs:ros_its_msgs
--DCATKIN_DEVEL_PREFIX=/home/enio/OneDrive/Cister/ROS/CarSim/CISTER_car_drive_controller/devel -DCMAKE_INSTALL_PREFIX=/home/enio/OneDrive/Cister/ROS/CarSim/CISTER_car_drive_controller/install -G Unix Makefiles
